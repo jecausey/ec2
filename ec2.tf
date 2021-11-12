@@ -9,17 +9,18 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region = "us-east-1"
+  region = "us-east-2"
 }
 
 
-resource "aws_instance" "ebs-1" {
-  ami           = "ami-0947d2ba12ee1ff75"
+resource "aws_instance" "ansible" {
+  ami           = "ami-0f19d220602031aed"
   instance_type = "t2.micro"
-  subnet_id = "subnet-0320315d45ebe5cd3"
-  key_name = "ec2keys"
+  subnet_id = "subnet-0da094a535c9f689a"
+  count = 2
+  key_name = "aws_arch"
   tags = {
-    "Name" = "ebs-1"
+    "Name" = "ansible"
   }
 }
 
