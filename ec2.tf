@@ -13,14 +13,25 @@ provider "aws" {
 }
 
 
-resource "aws_instance" "ansible" {
+resource "aws_instance" "ansible_client1" {
   ami           = "ami-0f19d220602031aed"
   instance_type = "t2.micro"
   subnet_id = "subnet-0da094a535c9f689a"
   count = 1
   key_name = "aws_arch"
   tags = {
-    "Name" = "ansible"
+    "Name" = "ansible_client1"
   }
 }
 
+
+resource "aws_instance" "ansible_client2" {
+  ami           = "ami-0f19d220602031aed"
+  instance_type = "t2.micro"
+  subnet_id = "subnet-0da094a535c9f689a"
+  count = 1
+  key_name = "aws_arch"
+  tags = {
+    "Name" = "ansible_client2"
+  }
+}
